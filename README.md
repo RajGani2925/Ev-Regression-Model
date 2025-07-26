@@ -1,51 +1,96 @@
-# 🚗 EV Adoption Forecasting in Washington State
+# 🚗 Electric Vehicle (EV) Adoption Forecasting
 
-## 📊 Project Overview
-
-This project aims to forecast the future adoption of electric vehicles (EVs) in Washington State using historical vehicle registration data from 2017 to 2024. It leverages machine learning regression techniques to model growth trends and support data-driven infrastructure planning for sustainable transportation.
+This project presents a machine learning-based approach to forecast electric vehicle (EV) adoption across counties using historical registration data. The objective is to understand and predict future trends in EV usage to support sustainable planning and EV infrastructure development.
 
 ---
 
-## 📁 Dataset
+## 📁 Project Structure
 
-- **Source**: [Kaggle - EV Population Size 2024](https://www.kaggle.com/datasets/sahirmaharajj/electric-vehicle-population-size-2024)
-- **Period**: Jan 2017 – Feb 2024
-- **Features include**:
-  - Date of vehicle registration
-  - County and State
-  - Primary use (Passenger, Truck)
-  - EV type: Battery Electric Vehicles (BEVs), Plug-in Hybrid Electric Vehicles (PHEVs)
-  - Total EVs vs. Non-EVs
-  - Percentage of EVs per county
-
----
-
-## 🧠 Objective
-
-- Predict the number of electric vehicles for future dates using historical trends.
-- Help urban planners anticipate charging station needs and other infrastructure demands.
+```plaintext
+EV-Adoption-Forecasting/
+├── EV_Adoption_Forecasting.ipynb              # Main notebook with data analysis and model
+├── Electric_Vehicle_Population_By_County.csv  # Original raw dataset
+├── preprocessed_ev_data.csv                   # Cleaned and processed dataset
+├── forecasting_ev_model.pkl                   # Trained machine learning model
+└── README.md                                  # Project overview and instructions
+```
 
 ---
 
-## 🛠️ Technologies Used
+## 📊 Dataset Overview
 
-- Python
-- Pandas, NumPy
-- Scikit-learn (for regression models)
-- Matplotlib / Seaborn (for visualization)
-- Jupyter Notebook
-
----
-
-## 📈 Modeling Approach
-
-1. **Data Cleaning & Preparation**
-2. **Exploratory Data Analysis (EDA)**
-3. **Feature Engineering**
-4. **Train/Test Split**
-5. **Modeling**: Linear Regression, Random Forest, etc.
-6. **Evaluation**: RMSE, MAE, R²
-7. **Forecasting** future EV counts
+- **Source**: Publicly available Electric Vehicle Population dataset  
+- **Format**: CSV  
+- **Fields include**:
+  - `County`
+  - `Make`, `Model`
+  - `Electric Vehicle Type`
+  - `Model Year`
+  - `CAFV Eligibility`
+  - `Vehicle Location` (aggregated)
 
 ---
 
+## 🔍 Project Workflow
+
+### 1. Data Preprocessing
+- Cleaned and filtered raw data
+- Grouped by county and year
+- Extracted meaningful features for forecasting
+
+### 2. Feature Engineering
+- Aggregated EV counts per year per county
+- Created time-series compatible structure
+- Normalized and encoded necessary fields
+
+### 3. Model Training
+- Built regression model to predict future EV adoption
+- Applied machine learning using Scikit-learn
+- Saved trained model as a `.pkl` file
+
+### 4. Model Evaluation
+- Evaluated model using:
+  - Root Mean Squared Error (RMSE)
+  - R² Score
+- Compared actual vs predicted EV counts
+
+---
+
+## 📈 Results
+
+- Forecasted county-level EV adoption trends with reasonable accuracy
+- Visualization of results shows realistic future projections
+- The model generalizes well across different counties
+
+---
+
+## 🛠 Technologies Used
+
+- Python 3
+- Pandas and NumPy for data processing
+- Matplotlib and Seaborn for visualization
+- Scikit-learn for model building and evaluation
+- Jupyter Notebook for interactive development
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository or download the files.
+2. Open `EV_Adoption_Forecasting.ipynb` in Jupyter Notebook.
+3. Run all cells in sequence:
+   - Load and preprocess data
+   - Train the model
+   - Evaluate results
+4. The trained model can be loaded from `forecasting_ev_model.pkl` for reuse.
+
+---
+
+## 🔮 Future Improvements
+
+- Include external features such as:
+  - Fuel prices
+  - Charging station density
+  - Policy changes or incentives
+- Use advanced forecasting models (e.g., ARIMA, LSTM)
+- Deploy as a web-based dashboard for real-time forecasts
